@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calculator">
+        <div class="timestamp">
+            <div class="data" id="data">01/01/01</div>
+            <div class="hora" id="hora">00:00</div>
+        </div>
+        <div class="display" id="display">0</div>
+        <div class="buttons">
+            <button id="btn-7">7</button>
+            <button id="btn-8">8</button>
+            <button id="btn-9">9</button>
+            <button id="btn-porcento" class="operator">%</button>
+            <button id="btn-4">4</button>
+            <button id="btn-5">5</button>
+            <button id="btn-6">6</button>
+            <button id="btn-multiplicacao" class="operator">*</button>
+            <button id="btn-1">1</button>
+            <button id="btn-2">2</button>
+            <button id="btn-3">3</button>
+            <button id="btn-subtracao" class="operator">-</button>
+            <button id="btn-0">0</button>
+            <button id="btn-ponto">.</button>
+            <button id="btn-igual" class="operator double">=</button>
+            <button id="btn-soma" class="operator">+</button>
+            <button id="btn-ac" class="double">AC</button>
+            <button id="btn-ce">CE</button>
+        </div>
+    </div>
+    <script src="./scripts/controller/CalcController.js"></script> 
+    <script src="./scripts/calculadora.js"></script>
+</body>
+</html>
