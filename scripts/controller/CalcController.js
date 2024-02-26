@@ -20,12 +20,47 @@ class CalcController {
 
     initialize() {
 
-        setInterval(()=>{
+        this.setDisplayDateTime();
 
-            this.displayDate = this.currentDate.toLocaleDateString(this._locale);
-            this.displayTime = this.currentDate.toLocaleTimeString(this._locale);
+        // foi atribuída uma variável apenas para exemplificar o comando clearInterval
+        let interval = setInterval(()=>{
+
+            this.setDisplayDateTime();
 
         }, 1000);
+
+        /* esta rotina pode ser utilizada para parar a contagem 
+        *   dos comandos <setInterval> e <setTimeout>
+        *
+        *   setTimeout(()=>{
+        *
+        *       clearInterval(interval);
+        *
+        *   }, 10000)
+        */
+
+        this.initButtonsEvents();
+
+    }
+
+    setDisplayDateTime() {
+        this.displayDate = this.currentDate.toLocaleDateString(this._locale);
+        this.displayTime = this.currentDate.toLocaleTimeString(this._locale);
+    }
+
+
+    initButtonsEvents(){
+
+        let buttons = document.querySelectorAll("#buttons > button");
+
+        buttons.forEach((btn, index)=>{
+            btn.addEventListener("click", e => {
+                
+                console.log(btn.id.replace("btn-",""));
+
+            })
+
+        });
 
     }
 
