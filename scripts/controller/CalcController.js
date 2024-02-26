@@ -48,15 +48,29 @@ class CalcController {
         this.displayTime = this.currentDate.toLocaleTimeString(this._locale);
     }
 
+    addEventListenerAll (element, events, fn){
+
+        // o comando SPLIT transforma uma string num array
+        events.split(" ").forEach(event => {
+
+            element.addEventListener(event, fn, false);
+            
+
+        });
+
+    }
 
     initButtonsEvents(){
 
         let buttons = document.querySelectorAll("#buttons > button");
 
         buttons.forEach((btn, index)=>{
-            btn.addEventListener("click", e => {
+            
+
+            this.addEventListenerAll(btn, "click drag", e => {
                 
                 console.log(btn.id.replace("btn-",""));
+                
 
             })
 
