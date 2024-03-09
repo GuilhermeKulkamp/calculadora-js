@@ -60,6 +60,84 @@ class CalcController {
 
     }
 
+    clearAll () {
+        this.displayCalc = "0";
+    }
+
+    addOperation(value){
+
+        this.displayCalc = this.displayCalc.concat(value);
+    }
+
+    setError () {
+        this.displayCalc = "Error";
+    }
+
+    execBtn(value) {
+
+        switch (value) {
+
+            case "igual":
+
+            break;
+
+            case "ac":
+
+            this.clearAll();
+
+            break;
+
+            case "sum":
+
+            this.addOperation("+");
+
+            break;
+
+            case "subtraction":
+
+            this.addOperation("-");
+
+            break;
+
+            case "multiplication":
+
+            this.addOperation("*");
+
+            break;
+
+            case "division":
+
+            this.addOperation("/");
+
+            break;
+
+            case "ponto":
+
+            this.addOperation(".");
+
+            break;
+
+            case "0":
+            case "1":
+            case "2":
+            case "3":
+            case "4":
+            case "5":
+            case "6":
+            case "7":
+            case "8":
+            case "9":
+
+            this.addOperation(value);
+
+            break;
+
+            default:
+                this.setError();
+            break;
+        }
+    }
+
     initButtonsEvents(){
 
         let buttons = document.querySelectorAll("#buttons > button");
@@ -69,14 +147,16 @@ class CalcController {
 
             this.addEventListenerAll(btn, "click drag", e => {
                 
-                console.log(btn.id.replace("btn-",""));
+                let textBtn = btn.id.replace("btn-","");
                 
+                this.execBtn(textBtn);
 
             })
 
         });
 
     }
+
 
     get displayDate(){
         return this._dateEl.innerHTML;
